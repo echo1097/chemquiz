@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let correctAnswers = [];
     let questionTypes = [];
     let questions = []; // Array to store questions
+    let questionList = []; // Array to store the list of questions for display
 
     function getRandomElements(elements, count) {
         const shuffled = [...elements].sort(() => 0.5 - Math.random());
@@ -105,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Store the current question text
         questions[currentElementIndex] = questionText;
+        questionList.push(questionText); // Add the question to the list
 
         updateQuestionsLeft();
     }
