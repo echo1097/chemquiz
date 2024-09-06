@@ -197,5 +197,5 @@ document.addEventListener('DOMContentLoaded', () => {
     updateQuestion();
 
     // Add autocomplete functionality
-    answerInput.addEventListener('input', handleAutocomplete);
+    //answerInput.addEventListener('input', handleAutocomplete);
 });
