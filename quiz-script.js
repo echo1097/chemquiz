@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let userAnswers = [];
     let correctAnswers = [];
     let questionTypes = [];
+    let questions = []; // Array to store questions
 
     function getRandomElements(elements, count) {
         const shuffled = [...elements].sort(() => 0.5 - Math.random());
@@ -82,22 +83,29 @@ document.addEventListener('DOMContentLoaded', () => {
         const element = selectedElements[currentElementIndex];
         const questionType = questionTypes[currentElementIndex];
 
+        let questionText;
+
         if (questionType === 0) {
-            questionElem.textContent = `What is the symbol for ${element.name}?`;
+            questionText = `What is the symbol for ${element.name}?`;
             correctAnswers[currentElementIndex] = element.symbol;
         } else {
             const randomFormat = Math.random() < 0.5;
             if (randomFormat) {
-                questionElem.textContent = `What is the element with symbol ${element.symbol}?`;
+                questionText = `What is the element with symbol ${element.symbol}?`;
                 correctAnswers[currentElementIndex] = element.name;
             } else {
-                questionElem.textContent = `What element has symbol ${element.symbol}?`;
+                questionText = `What element has symbol ${element.symbol}?`;
                 correctAnswers[currentElementIndex] = element.name;
             }
         }
 
+        questionElem.textContent = questionText;
         answerInput.value = '';
         autocompleteContainer.innerHTML = ''; // Clear previous suggestions
+
+        // Store question and answer
+        questions[currentElementIndex] = questionText;
+
         updateQuestionsLeft();
     }
 
@@ -109,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const correctAnswer = correctAnswers[index];
             const result = answer === correctAnswer ? 'Correct' : `Wrong. Correct answer was ${correctAnswer}`;
             if (answer === correctAnswer) score++;
-            results.push(`${index + 1}) ${questionElem.textContent} - Your answer: ${answer} - ${result}`);
+            results.push(`${index + 1}) ${questions[index]} - Your answer: ${answer} - ${result}`);
         });
 
         feedbackText += ` You got ${score} correct answers.`;
