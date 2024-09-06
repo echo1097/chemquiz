@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Quiz</title>
+    <link rel="stylesheet" href="quiz-style.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Element Quiz</h1>
+        <p id="question"></p>
+        <input type="text" id="answer" placeholder="Type your answer...">
+        <div id="autocomplete-container"></div>
+        <button id="submit-button">Submit</button>
+        <p id="feedback"></p>
+        <p id="questions-left"></p>
+    </div>
+
+    <div id="masterlist-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <ul id="element-list"></ul>
+        </div>
+    </div>
+
+    <button id="show-masterlist">Show Master List</button>
+
+    <script src="quiz-script.js"></script>
+</body>
+</html>
