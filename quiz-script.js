@@ -131,14 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleAutocomplete() {
-        const input = answerInput.value.trim().toUpperCase();
+        const input = answerInput.value.trim();
         if (!input) {
             autocompleteContainer.innerHTML = '';
             return;
         }
 
         const suggestions = elements.filter(el => 
-            el.name.toUpperCase().startsWith(input) || el.symbol.toUpperCase().startsWith(input)
+            el.name.startsWith(input) || el.symbol.startsWith(input)
         );
 
         autocompleteContainer.innerHTML = '';
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     submitButton.addEventListener('click', () => {
-        const userAnswer = answerInput.value.trim().toUpperCase();
+        const userAnswer = answerInput.value.trim(); // No conversion to uppercase
         userAnswers[currentElementIndex] = userAnswer;
 
         currentElementIndex++;
