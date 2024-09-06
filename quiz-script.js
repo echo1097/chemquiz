@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         answerInput.value = '';
         autocompleteContainer.innerHTML = ''; // Clear previous suggestions
 
-        // Store question and answer
+        // Store the current question text
         questions[currentElementIndex] = questionText;
 
         updateQuestionsLeft();
